@@ -351,36 +351,37 @@ function recomendarReceitas() {
     let listaRecomendacoes = document.getElementById('recomendacoes-receitas');
     listaRecomendacoes.innerHTML = '';
 
-    // Filtra receitas que podem ser feitas com todos os ingredientes disponíveis
     let receitasValidas = receitas.filter(function (receita) {
         return receita.ingredientes.every(function (ingrediente) {
             return alimentos.includes(ingrediente.toLowerCase());
         });
     });
 
-    // Exibe apenas receitas válidas
     if (receitasValidas.length > 0) {
         receitasValidas.forEach(function (receita) {
             let li = document.createElement('li');
-            li.className = 'lista-recomendado';
 
-            li.textContent = `${receita.nome} - Ingredientes: ${receita.ingredientes.join(', ')}`;
+            // Cria um link para redirecionar à página de detalhes
+            let link = document.createElement('a');
+            link.href = 'detalhes.html'; // Página de detalhes
+            link.textContent = `${receita.nome} - Ingredientes: ${receita.ingredientes.join(', ')}`;
+            link.style.textDecoration = 'none';
+            link.style.color = 'black';
 
-            // Adiciona o botão "Favoritar"
-            let botaoFavoritar = document.createElement('button');
-            botaoFavoritar.textContent = 'Favoritar';
-            botaoFavoritar.className = 'botao-favoritar';
-            botaoFavoritar.onclick = function () {
-                adicionarFavorito(receita.nome);
-            };
+            // Salva a receita no localStorage ao clicar no link
+            link.addEventListener('click', function () {
+                localStorage.setItem('receitaSelecionada', JSON.stringify(receita));
+            });
 
-            li.appendChild(botaoFavoritar);
+            li.appendChild(link);
             listaRecomendacoes.appendChild(li);
         });
     } else {
         listaRecomendacoes.innerHTML = '<li>Nenhuma receita pode ser feita com os ingredientes disponíveis.</li>';
     }
 }
+
+
 
 // Função para adicionar receitas aos favoritos
 function adicionarFavorito(receita) {
