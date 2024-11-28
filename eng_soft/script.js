@@ -148,7 +148,8 @@ document.getElementById('form-alimento').addEventListener('submit', function (e)
         localStorage.setItem('alimentos', JSON.stringify(alimentos));
         atualizarListaAlimentos();
         document.getElementById('nome-alimento').value = '';
-        atualizarResultadosPesquisa();
+        //atualizarResultadosPesquisa();
+        
 
     }
 });
