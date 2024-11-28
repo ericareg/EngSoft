@@ -155,3 +155,17 @@ function exibirResultados(resultados) {
         listaResultados.innerHTML = '<li>Nenhuma receita encontrada.</li>';
     }
 }
+
+
+// **Adicionamos um evento para o botão "Limpar Busca"**
+document.getElementById('limpar-busca').addEventListener('click', function() {
+    document.getElementById('termo-pesquisa').value = '';
+    limparResultados();
+});
+
+// Função para limpar os resultados da pesquisa
+function limparResultados() {
+    let listaResultados = document.getElementById('resultados-receitas');
+    listaResultados.innerHTML = '';
+}
+
