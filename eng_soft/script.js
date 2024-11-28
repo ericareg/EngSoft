@@ -419,8 +419,6 @@ document.getElementById('form-alimento').addEventListener('submit', function (e)
         atualizarListaAlimentos();
         document.getElementById('nome-alimento').value = '';
 
-        // Atualiza os resultados da pesquisa
-        atualizarResultadosPesquisa();
     }
 });
 
