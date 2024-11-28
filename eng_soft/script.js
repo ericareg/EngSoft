@@ -209,6 +209,7 @@ function excluirAlimento(index) {
         alimentos.splice(index, 1);
         localStorage.setItem('alimentos', JSON.stringify(alimentos));
         atualizarListaAlimentos();
+        atualizarResultadosPesquisa();
     }
 }
 
@@ -424,14 +425,12 @@ document.getElementById('form-alimento').addEventListener('submit', function (e)
 });
 
 function atualizarResultadosPesquisa() {
-    console.log("Atualizando resultados..."); // Para verificar se a função é chamada
-
     let termoPesquisa = document.getElementById('termo-pesquisa').value.trim().toLowerCase();
     let filtroCusto = document.getElementById('filtro-custo').value;
     let filtroVegetariana = document.getElementById('filtro-vegetariana').value;
     let filtroDificuldade = document.getElementById('filtro-dificuldade').value;
 
-    // Reaplica a pesquisa
+    // Reaplica a pesquisa com os filtros atuais
     let resultados = pesquisarReceitas(termoPesquisa, filtroCusto, filtroVegetariana, filtroDificuldade);
 
     // Atualiza os resultados na interface
