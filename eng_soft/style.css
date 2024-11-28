@@ -13,7 +13,8 @@ form {
 
 input[type="text"] {
     padding: 8px;
-    width: 200px;
+    width: 300px;
+    margin-right: 10px;
 }
 
 button {
@@ -29,4 +30,34 @@ li {
     background: #f4f4f4;
     margin-bottom: 5px;
     padding: 10px;
+}
+
+.lista-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lista-item span {
+    flex-grow: 1;
+}
+
+.botao-editar, .botao-excluir {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.botao-editar {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.botao-excluir {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
