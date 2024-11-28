@@ -17,7 +17,7 @@ const receitas = [
         ingredientes: ['banana', 'leite', 'açúcar'],
         custo: 'baixo',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Bata todos os ingredientes no liquidificador até obter uma mistura homogênea. Sirva gelado.'
 
 
@@ -28,7 +28,7 @@ const receitas = [
         ingredientes: ['maçã', 'banana', 'laranja', 'morango', 'uvas'],
         custo: 'medio',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Lave bem todas as frutas. Corte-as em pedaços pequenos e misture em uma tigela. Sirva gelada.'
     },
     {
@@ -44,7 +44,7 @@ const receitas = [
         ingredientes: ['ovo', 'queijo', 'sal', 'pimenta'],
         custo: 'baixo',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Bata os ovos em uma tigela. Aqueça uma frigideira com um pouco de óleo, despeje os ovos e adicione o queijo. Tempere com sal e pimenta. Cozinhe até firmar.'
     },
     {
@@ -52,7 +52,7 @@ const receitas = [
         ingredientes: ['pão', 'alface', 'tomate', 'frango', 'maionese'],
         custo: 'alto',
         vegetariana: false,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Corte o tomate em rodelas e prepare o frango grelhado ou desfiado. Monte o sanduíche com pão, maionese, alface, tomate e frango.'
     },
     {
@@ -60,7 +60,7 @@ const receitas = [
         ingredientes: ['laranja', 'açúcar'],
         custo: 'baixo',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Esprema as laranjas para extrair o suco. Misture com açúcar a gosto e água gelada. Sirva imediatamente.'
     },
     {
@@ -76,7 +76,7 @@ const receitas = [
         ingredientes: ['tomate', 'muçarela de búfala', 'manjericão', 'azeite', 'sal'],
         custo: 'alto',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Corte o tomate e a muçarela de búfala em rodelas. Monte alternadamente em um prato, adicione folhas de manjericão e regue com azeite. Tempere com sal.'
     },
     {
@@ -92,7 +92,7 @@ const receitas = [
         ingredientes: ['ovo'],
         custo: 'baixo',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Bata os ovos levemente e tempere com sal. Em uma frigideira com manteiga, cozinhe mexendo até atingir a consistência desejada.'
     },
     {
@@ -100,7 +100,7 @@ const receitas = [
         ingredientes: ['ovo', 'sal'],
         custo: 'baixo',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Coloque os ovos em uma panela com água e leve ao fogo. Deixe cozinhar por cerca de 8 a 10 minutos após começar a ferver. Descasque e tempere com sal.'
     },
     {
@@ -124,7 +124,7 @@ const receitas = [
         ingredientes: ['leite condensado', 'achocolatado em pó', 'manteiga'],
         custo: 'medio',
         vegetariana: true,
-        dificuldade: 'facil',
+        dificuldade: 'baixo',
         modoPreparo: 'Em uma panela, misture todos os ingredientes e cozinhe em fogo baixo até desgrudar do fundo. Deixe esfriar e enrole.'
     }
 
