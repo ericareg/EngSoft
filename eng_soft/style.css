@@ -235,6 +235,24 @@ header {
 }
 
 
+#botao-favoritos {
+    position: absolute;
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância do lado direito */
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+#botao-favoritos:hover {
+    background-color: #4CAF50;
+    color: white;
+}
 /* Estilo do botão de Favoritar */
 #botao-favoritar {
     background-color: #FFD700; /* Amarelo dourado */
@@ -253,7 +271,6 @@ header {
     background-color: #FFC107; /* Cor mais clara ao passar o mouse */
     color: white; /* Texto branco ao passar o mouse */
 }
-
 
 
 form#form-pesquisa select {

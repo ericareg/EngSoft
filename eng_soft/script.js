@@ -148,6 +148,8 @@ document.getElementById('form-alimento').addEventListener('submit', function (e)
         localStorage.setItem('alimentos', JSON.stringify(alimentos));
         atualizarListaAlimentos();
         document.getElementById('nome-alimento').value = '';
+        atualizarResultadosPesquisa();
+
     }
 });
 
@@ -218,7 +220,6 @@ document.getElementById('form-pesquisa').addEventListener('submit', function (e)
     exibirResultados(resultados);
 });
 
-// Pesquisa receitas com base no termo de pesquisa no nome ou nos ingredientes
 // Pesquisa receitas com base no termo de pesquisa, custo, vegetarianismo e dificuldade
 function pesquisarReceitas(termo, custo, vegetariana, dificuldade) {
     return receitas.filter(function (receita) {
@@ -254,32 +255,7 @@ document.getElementById('form-pesquisa').addEventListener('submit', function (e)
 });
 
 
-// Manipula o evento de submissão do formulário de pesquisa
-document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    // Obtém os valores dos campos de busca e filtros
-    let termoPesquisa = document.getElementById('termo-pesquisa').value.trim().toLowerCase();
-    let filtroCusto = document.getElementById('filtro-custo').value;
-    let filtroVegetariana = document.getElementById('filtro-vegetariana').value;
-
-    // Realiza a busca com os filtros aplicados
-    let resultados = pesquisarReceitas(termoPesquisa, filtroCusto, filtroVegetariana);
-    exibirResultados(resultados);
-});
-
-
-// Manipula o evento de submissão do formulário de pesquisa
-document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    let termoPesquisa = document.getElementById('termo-pesquisa').value.trim().toLowerCase();
-    let filtroCusto = document.getElementById('filtro-custo').value;
-    let filtroVegetariana = document.getElementById('filtro-vegetariana').value;
-
-    let resultados = pesquisarReceitas(termoPesquisa, filtroCusto, filtroVegetariana);
-    exibirResultados(resultados);
-});
 
 
 // Exibe os resultados da pesquisa na página
@@ -432,3 +408,32 @@ function atualizarListaAlimentos() {
 }
 
 
+// Manipula o evento de submissão do formulário de cadastro de alimentos
+document.getElementById('form-alimento').addEventListener('submit', function (e) {
+    e.preventDefault();
+    let nomeAlimento = document.getElementById('nome-alimento').value.trim().toLowerCase();
+    if (nomeAlimento && !alimentos.includes(nomeAlimento)) {
+        alimentos.push(nomeAlimento);
+        localStorage.setItem('alimentos', JSON.stringify(alimentos));
+        atualizarListaAlimentos();
+        document.getElementById('nome-alimento').value = '';
+
+        // Atualiza os resultados da pesquisa
+        atualizarResultadosPesquisa();
+    }
+});
+
+function atualizarResultadosPesquisa() {
+    console.log("Atualizando resultados..."); // Para verificar se a função é chamada
+
+    let termoPesquisa = document.getElementById('termo-pesquisa').value.trim().toLowerCase();
+    let filtroCusto = document.getElementById('filtro-custo').value;
+    let filtroVegetariana = document.getElementById('filtro-vegetariana').value;
+    let filtroDificuldade = document.getElementById('filtro-dificuldade').value;
+
+    // Reaplica a pesquisa
+    let resultados = pesquisarReceitas(termoPesquisa, filtroCusto, filtroVegetariana, filtroDificuldade);
+
+    // Atualiza os resultados na interface
+    exibirResultados(resultados);
+}
