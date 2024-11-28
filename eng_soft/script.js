@@ -1,7 +1,51 @@
-// Array para armazenar os alimentos cadastrados
+// Lista de alimentos cadastrados pelo usuário
 let alimentos = [];
 
-// Verifica se há alimentos salvos no localStorage ao carregar a página
+// Lista de receitas pré-definidas
+const receitas = [
+    {
+        nome: 'Panqueca de Banana',
+        ingredientes: ['banana', 'ovo', 'farinha', 'leite', 'açúcar']
+    },
+    {
+        nome: 'Vitamina de Banana',
+        ingredientes: ['banana', 'leite', 'açúcar']
+    },
+    {
+        nome: 'Salada de Frutas',
+        ingredientes: ['maçã', 'banana', 'laranja', 'morango', 'uvas']
+    },
+    {
+        nome: 'Bolo de Chocolate',
+        ingredientes: ['farinha', 'açúcar', 'cacau em pó', 'ovo', 'leite']
+    },
+    {
+        nome: 'Omelete de Queijo',
+        ingredientes: ['ovo', 'queijo', 'sal', 'pimenta']
+    },
+    {
+        nome: 'Sanduíche Natural',
+        ingredientes: ['pão', 'alface', 'tomate', 'frango', 'maionese']
+    },
+    {
+        nome: 'Suco de Laranja',
+        ingredientes: ['laranja', 'água', 'açúcar']
+    },
+    {
+        nome: 'Macarrão ao Alho e Óleo',
+        ingredientes: ['macarrão', 'alho', 'azeite', 'sal']
+    },
+    {
+        nome: 'Salada Caprese',
+        ingredientes: ['tomate', 'muçarela de búfala', 'manjericão', 'azeite', 'sal']
+    },
+    {
+        nome: 'Panqueca Americana',
+        ingredientes: ['farinha', 'leite', 'ovo', 'fermento', 'açúcar']
+    }
+];
+
+// Carrega os alimentos do localStorage ao carregar a página
 window.onload = function() {
     if (localStorage.getItem('alimentos')) {
         alimentos = JSON.parse(localStorage.getItem('alimentos'));
@@ -12,8 +56,8 @@ window.onload = function() {
 // Manipula o evento de submissão do formulário de cadastro de alimentos
 document.getElementById('form-alimento').addEventListener('submit', function(e) {
     e.preventDefault();
-    let nomeAlimento = document.getElementById('nome-alimento').value.trim();
-    if (nomeAlimento) {
+    let nomeAlimento = document.getElementById('nome-alimento').value.trim().toLowerCase();
+    if (nomeAlimento && !alimentos.includes(nomeAlimento)) {
         alimentos.push(nomeAlimento);
         localStorage.setItem('alimentos', JSON.stringify(alimentos));
         atualizarListaAlimentos();
@@ -27,30 +71,55 @@ function atualizarListaAlimentos() {
     lista.innerHTML = '';
     alimentos.forEach(function(alimento, index) {
         let li = document.createElement('li');
-        li.textContent = alimento;
+        li.className = 'lista-item';
+
+        let span = document.createElement('span');
+        span.textContent = alimento;
+
+        let botaoEditar = document.createElement('button');
+        botaoEditar.textContent = 'Editar';
+        botaoEditar.className = 'botao-editar';
+        botaoEditar.onclick = function() {
+            editarAlimento(index);
+        };
+
+        let botaoExcluir = document.createElement('button');
+        botaoExcluir.textContent = 'Excluir';
+        botaoExcluir.className = 'botao-excluir';
+        botaoExcluir.onclick = function() {
+            excluirAlimento(index);
+        };
+
+        li.appendChild(span);
+        li.appendChild(botaoEditar);
+        li.appendChild(botaoExcluir);
         lista.appendChild(li);
     });
 }
 
-// Lista de receitas pré-definidas
-const receitas = [
-    {
-        nome: 'Salada de Frutas',
-        ingredientes: ['maçã', 'banana', 'laranja', 'morango']
-    },
-    {
-        nome: 'Omelete',
-        ingredientes: ['ovo', 'queijo', 'presunto']
-    },
-    {
-        nome: 'Vitamina de Banana',
-        ingredientes: ['banana', 'leite', 'açúcar']
-    },
-    {
-        nome: 'Sanduíche Natural',
-        ingredientes: ['pão', 'alface', 'tomate', 'frango']
+// Função para editar um alimento
+function editarAlimento(index) {
+    let novoNome = prompt('Editar alimento:', alimentos[index]);
+    if (novoNome !== null) {
+        novoNome = novoNome.trim().toLowerCase();
+        if (novoNome && !alimentos.includes(novoNome)) {
+            alimentos[index] = novoNome;
+            localStorage.setItem('alimentos', JSON.stringify(alimentos));
+            atualizarListaAlimentos();
+        } else {
+            alert('Alimento inválido ou já existente.');
+        }
     }
-];
+}
+
+// Função para excluir um alimento
+function excluirAlimento(index) {
+    if (confirm('Tem certeza que deseja excluir este alimento?')) {
+        alimentos.splice(index, 1);
+        localStorage.setItem('alimentos', JSON.stringify(alimentos));
+        atualizarListaAlimentos();
+    }
+}
 
 // Manipula o evento de submissão do formulário de pesquisa de receitas
 document.getElementById('form-pesquisa').addEventListener('submit', function(e) {
@@ -60,14 +129,14 @@ document.getElementById('form-pesquisa').addEventListener('submit', function(e) 
     exibirResultados(resultados);
 });
 
-// Pesquisa receitas com base nos alimentos cadastrados e termo de pesquisa
+// Pesquisa receitas com base no termo de pesquisa no nome ou nos ingredientes
 function pesquisarReceitas(termo) {
     return receitas.filter(function(receita) {
-        let possuiIngredientes = receita.ingredientes.every(function(ingrediente) {
-            return alimentos.includes(ingrediente);
-        });
         let nomeCorresponde = receita.nome.toLowerCase().includes(termo);
-        return possuiIngredientes && nomeCorresponde;
+        let ingredienteCorresponde = receita.ingredientes.some(function(ingrediente) {
+            return ingrediente.toLowerCase().includes(termo);
+        });
+        return nomeCorresponde || ingredienteCorresponde;
     });
 }
 
@@ -79,7 +148,7 @@ function exibirResultados(resultados) {
     if (resultados.length > 0) {
         resultados.forEach(function(receita) {
             let li = document.createElement('li');
-            li.textContent = receita.nome;
+            li.textContent = receita.nome + ' - Ingredientes: ' + receita.ingredientes.join(', ');
             listaResultados.appendChild(li);
         });
     } else {
