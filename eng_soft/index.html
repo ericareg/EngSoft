@@ -2,16 +2,19 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Alimentos e Pesquisa de Receitas</title>
+    <title>IngredChef</title>
+    <link rel="icon" href="img/logo.jpg" type="image/png">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- Barra de Pesquisa com botão de favoritos -->
     <header>
+        <img src="img/logo.jpg" alt="Logo do site" id="logo-site">
         <h1>Pesquisar Receitas</h1>
         <a href="favoritos.html" id="botao-favoritos">Favoritos</a>
         <form id="form-pesquisa">
-            <input type="text" id="termo-pesquisa" placeholder="Nome ou ingrediente da receita">
+            <input type="text" id="termo-pesquisa" placeholder="Nome ou ingrediente da receita 🔍 ">
             <button type="submit">Pesquisar</button>
             <button type="button" id="limpar-busca">Limpar Busca</button>
         </br>
@@ -52,7 +55,7 @@
     </section>
 
     <section id="cadastro">
-        <h1>Cadastro de Alimentos</h1>
+        <h1>Cadastro de Alimentos 🍎</h1>
         <form id="form-alimento">
             <input type="text" id="nome-alimento" placeholder="Nome do alimento" required>
             <button type="submit">Adicionar Alimento</button>
