@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Alimentos e Pesquisa de Receitas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Barra de Pesquisa com botão de favoritos -->
+    <header>
+        <h1>Pesquisar Receitas</h1>
+        <a href="favoritos.html" id="botao-favoritos">Favoritos</a>
+        <form id="form-pesquisa">
+            <input type="text" id="termo-pesquisa" placeholder="Nome ou ingrediente da receita">
+            <button type="submit">Pesquisar</button>
+            <button type="button" id="limpar-busca">Limpar Busca</button>
+        </br>
+        </br>
+        </br>
+            <select id="filtro-custo">
+                <option value="">Custo</option>
+                <option value="baixo">Baixo</option>
+                <option value="medio">Médio</option>
+                <option value="alto">Alto</option>
+            </select>
+            <select id="filtro-vegetariana">
+                <option value="">Vegetariana</option>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select>
+            <select id="filtro-dificuldade">
+                <option value="">Dificuldade</option>
+                <option value="baixo">Baixo</option>
+                <option value="medio">Médio</option>
+                <option value="alto">Alto</option>
+            </select>
+           
+        </form>
+    </header>
+    
+
+    <!-- Restante do conteúdo -->
+    <section id="resultados-pesquisa">
+        <h2>Resultados da Pesquisa</h2>
+        <ul id="resultados-receitas"></ul>
+    </section>
+
+    <section id="cadastro">
+        <h1>Cadastro de Alimentos</h1>
+        <form id="form-alimento">
+            <input type="text" id="nome-alimento" placeholder="Nome do alimento" required>
+            <button type="submit">Adicionar Alimento</button>
+        </form>
+        <h2>Lista de Alimentos Cadastrados</h2>
+        <ul id="lista-alimentos"></ul>
+
+        <h2>Receitas Recomendadas</h2>
+        <ul id="recomendacoes-receitas"></ul>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

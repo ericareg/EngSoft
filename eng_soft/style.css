@@ -1,0 +1,295 @@
+/* Configurações gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Cabeçalho */
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header form {
+    margin-top: 10px;
+}
+
+header input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 4px;
+}
+
+header button {
+    padding: 10px 15px;
+    border: none;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+header button:hover {
+    background-color: #f4f4f4;
+}
+
+/* Sessão de resultados */
+#resultados {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#resultados h2 {
+    margin-top: 0;
+}
+
+#resultados ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#resultados li {
+    padding: 10px;
+    background: #f4f4f4;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Cadastro de alimentos */
+#cadastro {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#cadastro h1, #cadastro h2 {
+    margin-top: 0;
+}
+
+#cadastro input[type="text"] {
+    padding: 8px;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+#cadastro button {
+    padding: 8px 12px;
+    border: none;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#cadastro button:hover {
+    background-color: #45a049;
+}
+
+#lista-alimentos {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lista-alimentos li {
+    padding: 10px;
+    background: #f4f4f4;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lista-item button {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+#recomendacoes-receitas {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+#recomendacoes-receitas li {
+    padding: 10px;
+    background: #e7f4e4;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    border: 1px solid #4CAF50;
+    display: flex;
+    justify-content: space-between;
+}
+
+.lista-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: #f4f4f4;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+
+.botao-editar, .botao-excluir {
+    margin-left: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.botao-editar {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.botao-excluir {
+    background-color: #f44336;
+    color: white;
+}
+
+.botao-editar:hover {
+    background-color: #45a049;
+}
+
+.botao-excluir:hover {
+    background-color: #e53935;
+}
+
+.lista-item span {
+    flex-grow: 1; /* Permite que o nome do alimento ocupe o espaço disponível */
+}
+
+header {
+    position: relative;
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#recomendacoes-receitas .botao-favoritar {
+    margin-left: 100px;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #FFD700;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#recomendacoes-receitas .botao-favoritar:hover {
+    background-color: #FFC107;
+    color: white;
+}
+
+
+#botao-voltar {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+#botao-voltar:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+#botao-favoritos {
+    position: absolute;
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância do lado direito */
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+#botao-favoritos:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+form#form-pesquisa select {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/**/
+#botao-voltar {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: white;
+    color: #4CAF50;
+    font-weight: bold;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid #4CAF50;
+    cursor: pointer;
+}
+
+#botao-voltar:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#detalhes-receita {
+    margin: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#detalhes-receita h2 {
+    margin-top: 0;
+}
