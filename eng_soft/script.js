@@ -108,7 +108,7 @@ const receitas = [
         ingredientes: ['filé mignon', 'cebola'],
         custo: 'alto',
         vegetariana: false,
-        dificuldade: 'dificil',
+        dificuldade: 'alto',
         modoPreparo: 'Tempere os filés com sal e pimenta. Aqueça uma frigideira com óleo e grelhe os filés. Adicione cebolas em fatias e refogue até caramelizar.'
     },
     {
@@ -116,7 +116,7 @@ const receitas = [
         ingredientes: ['leite condensado', 'açúcar', 'ovo', 'leite'],
         custo: 'medio',
         vegetariana: true,
-        dificuldade: 'dificil',
+        dificuldade: 'alto',
         modoPreparo: 'Prepare o caramelo com açúcar e coloque em uma forma. Bata os demais ingredientes no liquidificador, despeje sobre o caramelo e asse em banho-maria por 1 hora.'
     },
     {
@@ -222,7 +222,6 @@ document.getElementById('form-pesquisa').addEventListener('submit', function (e)
     exibirResultados(resultados);
 });
 
-// Pesquisa receitas com base no termo de pesquisa, custo, vegetarianismo e dificuldade
 function pesquisarReceitas(termo, custo, vegetariana, dificuldade) {
     return receitas.filter(function (receita) {
         let nomeCorresponde = receita.nome.toLowerCase().includes(termo);
@@ -237,11 +236,15 @@ function pesquisarReceitas(termo, custo, vegetariana, dificuldade) {
         let vegetarianaCorresponde = vegetariana === '' || receita.vegetariana === (vegetariana === 'sim');
 
         // Verifica se a dificuldade corresponde
+        console.log("Comparando dificuldade:", receita.dificuldade, dificuldade); // Depuração
+
         let dificuldadeCorresponde = !dificuldade || receita.dificuldade === dificuldade;
 
+        // Retorna apenas receitas que correspondem a todos os filtros
         return (nomeCorresponde || ingredienteCorresponde) && custoCorresponde && vegetarianaCorresponde && dificuldadeCorresponde;
     });
 }
+
 
 // Manipula o evento de submissão do formulário de pesquisa
 document.getElementById('form-pesquisa').addEventListener('submit', function (e) {
