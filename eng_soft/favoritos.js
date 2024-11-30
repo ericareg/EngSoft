@@ -9,6 +9,7 @@ function exibirFavoritos() {
     if (favoritos.length > 0) {
         favoritos.forEach(function(favorito, index) {
             let li = document.createElement('li');
+            
             li.textContent = favorito;
 
             // Adiciona o botão "Remover"
@@ -28,6 +29,11 @@ function exibirFavoritos() {
 
             li.appendChild(botaoRemover);
             listaFavoritos.appendChild(li);
+             // Cria um link para a página de detalhes
+             let link = document.createElement('a');
+             link.href = 'detalhes.html';
+             
+ 
         });
     } else {
         listaFavoritos.innerHTML = '<li>Nenhuma receita favorita encontrada.</li>';
