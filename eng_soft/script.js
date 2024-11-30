@@ -93,7 +93,7 @@ const receitas = [
         custo: 'baixo',
         vegetariana: true,
         dificuldade: 'baixo',
-        modoPreparo: 'Bata os ovos levemente e tempere com sal. Em uma frigideira com manteiga, cozinhe mexendo até atingir a consistência desejada.'
+        modoPreparo: 'Bata os ovos levemente e tempere com sal. Em uma frigideira, cozinhe mexendo até atingir a consistência desejada.'
     },
     {
         nome: 'Ovo Cozido',
