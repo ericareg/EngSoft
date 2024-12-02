@@ -129,8 +129,16 @@ const receitas = [
         vegetariana: true,
         dificuldade: 'baixo',
         modoPreparo: 'Em uma panela, misture todos os ingredientes e cozinhe em fogo baixo até desgrudar do fundo. Deixe esfriar e enrole.'
-    }
+    },
+    {
+        nome: 'File de frango com limão',
 
+        ingredientes: ["peito de frango", "suco de limão", "sal", "pimenta-do-reino", "azeite"],
+        custo: "baixo",
+        vegetariana: false,
+        dificuldade: "baixo",
+        modoPreparo: "Tempere o frango com sal, pimenta e suco de limão. Aqueça uma frigideira com azeite e grelhe os filés em fogo médio por 4-5 minutos de cada lado, até dourar e cozinhar bem."
+    }  
 
 ];
 
@@ -186,7 +194,9 @@ function editarAlimento(index) {
             alimentos[index] = novoNome;
             localStorage.setItem('alimentos', JSON.stringify(alimentos));
             atualizarListaAlimentos();
-            atualizarResultadosPesquisa();
+            if (pesquisaRealizada) {
+                atualizarResultadosPesquisa();
+            }
         } else {
             alert('Alimento inválido ou já existente.');
         }
@@ -201,7 +211,7 @@ function excluirAlimento(index) {
         atualizarListaAlimentos();
         if (pesquisaRealizada) {
             atualizarResultadosPesquisa();
-        }    
+        }
     }
 }
 
@@ -216,7 +226,7 @@ document.getElementById('form-alimento').addEventListener('submit', function (e)
         document.getElementById('nome-alimento').value = '';
         if (pesquisaRealizada) {
             atualizarResultadosPesquisa();
-        }    
+        }
     }
 });
 
