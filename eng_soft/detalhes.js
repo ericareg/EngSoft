@@ -9,7 +9,16 @@ if (receita) {
     document.getElementById('vegetariana-receita').textContent = receita.vegetariana ? 'Sim' : 'Não';
     document.getElementById('dificuldade-receita').textContent = receita.dificuldade;
     document.getElementById('modo-preparo-receita').textContent = receita.modoPreparo;
-
+    
+    // Configura a imagem da receita
+    const imagemReceita = document.getElementById('imagem-receita');
+    if (receita.imagem) {
+        imagemReceita.src = receita.imagem; // Caminho para a imagem
+        imagemReceita.alt = `Imagem da receita ${receita.nome}`;
+    } else {
+        imagemReceita.src = 'img/default.jpg'; // Imagem padrão se não houver
+        imagemReceita.alt = 'Imagem não disponível';
+    }
     // Configura o botão de "Favoritar"
     const botaoFavoritar = document.getElementById('botao-favoritar');
     botaoFavoritar.addEventListener('click', function () {
